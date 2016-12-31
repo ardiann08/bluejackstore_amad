@@ -14,11 +14,6 @@
 		}
 	}
 %>
-<style type="text/css">
-	.down{
-		margin-top: 8%;
-	}
-</style>
 
 <div class="container">
 	<div class="row">

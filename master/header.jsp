@@ -9,8 +9,11 @@
 	<script type="text/javascript" src="source/bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript" src="source/bootstrap/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="source/css/header.css">
+	<link rel="stylesheet" type="text/css" href="source/css/style.css">
 	<link rel="stylesheet" type="text/css" href="source/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="source/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="source/font-awesome-4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" type="text/css" href="source/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
@@ -33,7 +36,7 @@
 					<li><a href="transaction.jsp"><span class="glyphicon glyphicon-tasks"></span> Transaction</a></li>			
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="cart.jsp"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+					<li><a href="profile.jsp"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
 					<li><a href="cart.jsp"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
 					<li><a href="doLogout.jsp"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>					
 				</ul>		
@@ -45,7 +48,7 @@
 					<li><a href="transaction.jsp"><span class="glyphicon glyphicon-tasks"></span> Transaction</a></li>			
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="cart.jsp"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+					<li><a href="profile.jsp"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
 					<li><a href="cart.jsp"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
 					<li><a href="doLogout.jsp"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>					
 				</ul>

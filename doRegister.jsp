@@ -23,6 +23,11 @@
 	if(password.equals("") || cpassword.equals("")){
 		message += "password must be filled and must same with confirm password <br/>";
 	}
+
+	if(!password.equals(cpassword)){
+		message += "password and confirm password must be same <br/>";
+	}
+
 	if(email.equals("")){
 		message += "Email must be filled<br/>";
 	}
