@@ -2,7 +2,7 @@
 
 
 <div class="container">
-	<h3>Welcome</h3>
+	<h1>Welcome</h1>
 </div>
 
 

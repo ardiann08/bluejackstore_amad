@@ -40,7 +40,7 @@
 						<em>Inserted by <%=rs.getString("postedby")%></em>
 					</div>
 					<div>
-						<a href="">View Product Review</a>
+						<a href="review.jsp?id=<%=rs.getString("productid")%>">View Product Review</a>
 					</div>	
 				</div>
 				<%if(session.getAttribute("role").equals("member")){%>
