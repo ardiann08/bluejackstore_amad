@@ -3,6 +3,13 @@
 
 <div class="container">
 	<div class="row">
+		<span style="color: red">
+			<%= request.getParameter("message") != null ? request.getParameter("message") : "" %>
+		</span>
+		<div class="col-md-offset-5">
+			<h2>All Product</h2>
+		</div>
+
 		<%
 		String query="select * , fullname as postedby from product p , user u where p.insertby = u.userid";
 		ResultSet rs = st.executeQuery(query);
@@ -38,9 +45,10 @@
 				</div>
 				<%if(session.getAttribute("role").equals("member")){%>
 				<div class="col-md-4 cart-bottom">
-					<form class="form-inline pull-right">
+					<form class="form-inline pull-right" method="POST" action="doAddCart.jsp">
 						<div class="form-group">
-							<input type="number" class="form-control" name="" value="1" min="1">
+							<input type="number" class="form-control" name="qty" value="1" min="1">
+							<input type="hidden" name="productid" value="<%= rs.getString("productid")%>" />
 						</div>
 						<button type="submit" class="btn btn-default">Add To Cart</button>
 					</form>
@@ -48,12 +56,12 @@
 				<%}%>
 				<%if(session.getAttribute("role").equals("administrator")){%>
 				<div class="col-md-4">		
-					<form action="" class="form-inline pull-right">
-						<input type="hidden" value="<%=rs.getString("productid")%>">
-						<button type="submit" class="btn btn-default">Delete</button>
+					<form action="doDeleteProduct.jsp" method="POST" class="form-inline pull-right">
+						<input type="hidden" name="productid" value="<%=rs.getString("productid")%>">
+						<button type="submit" class="btn btn-default" onclick="return confirm('Are you sure ?')">Delete</button>
 					</form>
-					<form action="" class="form-inline pull-right">
-						<input type="hidden" value="<%=rs.getString("productid")%>">
+					<form action="updateproduct.jsp" method="GET" class="form-inline pull-right">
+						<input type="hidden" name="productid" value="<%=rs.getString("productid")%>">
 						<button type="submit" class="btn btn-default">Update</button>
 					</form>
 				</div>

@@ -45,11 +45,11 @@
 					<li><a href="index.jsp" ><span class="glyphicon glyphicon-home"></span> Home</a></li>
 					<li><a href="product.jsp"><span class="glyphicon glyphicon-tags"></span> Product</a></li>
 					<li><a href="member.jsp"><span class="glyphicon glyphicon-eye-open"></span> Member</a></li>
-					<li><a href="transaction.jsp"><span class="glyphicon glyphicon-tasks"></span> Transaction</a></li>			
+					<li><a href="insertproduct.jsp"><span class="fa fa-plus"></span> Insert Product</a></li>	
+					<li><a href="transactionadmin.jsp"><span class="glyphicon glyphicon-tasks"></span> Transaction</a></li>			
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="profile.jsp"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-					<li><a href="cart.jsp"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
 					<li><a href="doLogout.jsp"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>					
 				</ul>
 			<%}%>
