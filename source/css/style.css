@@ -32,3 +32,30 @@
 .design a {
     color: #fff;
 }
+
+/**************************ALL*******************************/
+.box{
+    box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    margin-bottom: 30px;
+}
+.full-width{
+    width: 100%;
+}
+.text-center{
+    text-align: center;
+}
+hr{
+    width: 90% !important;
+    text-align: center;
+}
+/**************************Product*******************************/
+.product-header{
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+.product-detail{
+    margin-top: 3%;
+}
+.cart-bottom{
+    margin-top: 8%;
+}
