@@ -40,7 +40,7 @@
 					<li><a href="cart.jsp"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
 					<li><a href="doLogout.jsp"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>					
 				</ul>		
-			<%} else if(session.getAttribute("role").equals("admin")){ %>
+			<%} else if(session.getAttribute("role").equals("administrator")){ %>
 				<ul class="nav navbar-nav">
 					<li><a href="index.jsp" ><span class="glyphicon glyphicon-home"></span> Home</a></li>
 					<li><a href="product.jsp"><span class="glyphicon glyphicon-tags"></span> Product</a></li>
