@@ -46,7 +46,7 @@
 	if(!message.equals("")){
 		response.sendRedirect("register.jsp?message=" + message);
 	}else{
-		String query = "insert into user values(null, '"+ fullname +"', '"+ phone +"', '"+ email +"', '"+ password +"', '"+ gender +"', '"+ dob +"', '"+ address +"', 'user.jpg', 'member')";
+		String query = "insert into user values(null, '"+ fullname +"', '"+ phone +"', '"+ email +"', '"+ password +"', '"+ gender +"', '"+ dob +"', '"+ address +"', 'avatar.jpg', 'member')";
 		st.executeUpdate(query);
 		response.sendRedirect("register.jsp?message=success to register");
 		//out.print(query);

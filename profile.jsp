@@ -114,7 +114,7 @@
          </form>
       </div>
       <div class="col-md-2 hidden-xs">
-         <img src="http://websamplenow.com/30/userprofile/images/avatar.jpg" class="img-responsive img-thumbnail ">
+       <img src="source/img/<%= rs.getString("photo")%>" class="img-responsive img-thumbnail ">
       </div>
    </div>
 </div>

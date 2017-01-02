@@ -3,9 +3,14 @@
 
 <div class="container">
 	<div class="row">
-		<div class="panel panel-primary">
-			<div class="panel-heading">Panel with panel-info class</div>
-			<div class="panel-body">Panel Content</div>
+		<div class="panel panel-info">
+			<div class="panel-heading">Product ID : </div>
+			<div class="panel-body">
+				<div>
+					<img src="tes.jpg" width="120" height="120">
+				</div>
+
+			</div>
 		</div>
 	</div>
 

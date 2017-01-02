@@ -5,9 +5,9 @@
 </style>
 
 <%
-    String query = "select * from user where userid = " + session.getAttribute("userid");
-    ResultSet rs = st.executeQuery(query);
-    if(rs.next()){
+String query = "select * from user where userid = " + session.getAttribute("userid");
+ResultSet rs = st.executeQuery(query);
+if(rs.next()){
 %>
 
 <div class="container">
@@ -63,43 +63,41 @@
                      </div>                     
                   </div>
                </div>
-
                <div class="form-group">
                   <label class="col-md-4 control-label">Address</label>
                   <div class="col-md-5">                     
-                     <textarea class="form-control" rows="5" name="address"><%= rs.getString("address")%></textarea>
-                  </div>
+                   <textarea class="form-control" rows="5" name="address"><%= rs.getString("address")%></textarea>
+                </div>
+             </div>
+             <div class="form-group">
+               <label class="col-md-4 control-label" for="Upload photo">Upload photo</label>
+               <div class="col-md-5">
+                  <input  name="fPhoto" class="input-file" type="file">
                </div>
+            </div>
 
-               <div class="form-group">
-                  <label class="col-md-4 control-label" for="Upload photo">Upload photo</label>
-                  <div class="col-md-5">
-                     <input  name="fPhoto" class="input-file" type="file">
-                  </div>
+            <div class="form-group">
+               <label class="col-md-4 control-label"></label>
+               <div class="col-md-5">
+                  <span style="color: red">
+                     <%= request.getParameter("message") != null ? request.getParameter("message") : "" %>
+                  </span>
                </div>
-
-               <div class="form-group">
-                  <label class="col-md-4 control-label"></label>
-                  <div class="col-md-5">
-                     <span style="color: red">
-                        <%= request.getParameter("message") != null ? request.getParameter("message") : "" %>
-                     </span>
-                  </div>
+            </div>
+            
+            <div class="form-group">
+               <label class="col-md-4 control-label" ></label>  
+               <div class="col-md-5">
+                  <button type="submit" class="btn btn-success form-control">Confirm</button>
                </div>
-               
-               <div class="form-group">
-                  <label class="col-md-4 control-label" ></label>  
-                  <div class="col-md-5">
-                     <button type="submit" class="btn btn-success form-control">Confirm</button>
-                  </div>
-               </div>
-            </fieldset>
-         </form>
-      </div>
-      <div class="col-md-2 hidden-xs">
-         <img src="http://websamplenow.com/30/userprofile/images/avatar.jpg" class="img-responsive img-thumbnail ">
-      </div>
+            </div>
+         </fieldset>
+      </form>
    </div>
+   <div class="col-md-2 hidden-xs">
+      <img src="source/img/<%= rs.getString("photo")%>" class="img-responsive img-thumbnail ">
+   </div>
+</div>
 </div>
 
 
