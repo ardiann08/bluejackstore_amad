@@ -17,11 +17,33 @@
 		<span style="color: red">
 			<%= request.getParameter("message") != null ? request.getParameter("message") : "" %>
 		</span>
+		<%!
+			String searchmember="";
+			int offset=0;
+			int current=1;
+			int limit=3;
+			int itemCount=0;
+		%>
+
+
 		<%
 		String query="select * from user";
 		if(request.getParameter("searchmember") != null){
 			query += " where fullname like '%" +  request.getParameter("searchmember") + "%'";
 		}
+
+		if(request.getParameter("page")!=null){
+			offset = (Integer.parseInt(request.getParameter("page"))-1) *limit  ;
+			current=Integer.parseInt(request.getParameter("page"));
+		}
+		query+=" limit "+limit+" offset "+offset;
+		itemCount=0;
+		ResultSet counter = st.executeQuery("select * from user where fullname like '%"+searchmember+"%'");
+		while(counter.next()){
+			itemCount++;
+		}
+		System.out.println(query);
+
 		ResultSet rs = st.executeQuery(query);
 		while(rs.next()){
 		%>
@@ -49,6 +71,25 @@
 			</div>	
 		</div>
 		<%}%>
+	</div>
+	<div class="col-md-offset-5 bottom">
+			<%if(current!=1&&itemCount!=0){%>
+			<a href="member.jsp?page=1<%if(!searchmember.equals("")){out.print("&&");out.print("searchmember="+searchmember);}%>" class="btn btn-default"><<</a>
+			<a href="member.jsp?page=<%=current-1%><%if(!searchmember.equals("")){out.print("&&");out.print("searchmember="+searchmember);}%>" class="btn btn-default"><</a>
+			<%}%>
+			<%
+				int totalpage = itemCount / limit;
+				if(itemCount%limit!=0){
+					totalpage++;
+				}
+				for(int i=1;i<totalpage+1;i++){
+			%>
+			<a href="member.jsp?page=<%=i%><%if(!searchmember.equals("")){out.print("&&");out.print("searchmember="+searchmember);}%>" class="btn btn-default"><%=i%></a>
+			<%}%>
+			<%if(current!=totalpage&&itemCount!=0){%>
+			<a href="member.jsp?page=<%=current+1%><%if(!searchmember.equals("")){out.print("&&");out.print("searchmember="+searchmember);}%>" class="btn btn-default">></a>
+			<a href="member.jsp?page=<%=totalpage%><%if(!searchmember.equals("")){out.print("&&");out.print("searchmember="+searchmember);}%>" class="btn btn-default">>></a>
+			<%}%>
 	</div>
 
 </div>

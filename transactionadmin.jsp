@@ -3,6 +3,9 @@
 
 <div class="container">
 	<div class="row">
+		<div class="col-md-offset-5">
+			<h2>All Transaction</h2>
+		</div>
 		<span style="color: red">
 			<%= request.getParameter("message") != null ? request.getParameter("message") : "" %>
 		</span>

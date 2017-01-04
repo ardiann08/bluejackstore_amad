@@ -17,7 +17,13 @@
 				</div>
 			</form>
 		</div>
-
+		<%!
+			String searchproduct="";
+			int offset=0;
+			int current=1;
+			int limit=3;
+			int itemCount=0;
+		%>
 
 		<%			
 
@@ -25,6 +31,17 @@
 			if(request.getParameter("searchproduct") != null){
 				 query += " and name like '%" +  request.getParameter("searchproduct") + "%'";
 			}
+			if(request.getParameter("page")!=null){
+				offset = (Integer.parseInt(request.getParameter("page"))-1) *limit  ;
+				current=Integer.parseInt(request.getParameter("page"));
+			}
+			query+=" limit "+limit+" offset "+offset;
+			itemCount=0;
+			ResultSet counter = st.executeQuery("select * from product where name like '%"+searchproduct+"%'");
+			while(counter.next()){
+				itemCount++;
+			}
+			System.out.println(query);
 
 			ResultSet rs = st.executeQuery(query);
 			while(rs.next()){
@@ -83,6 +100,26 @@
 			</div>	
 		</div>
 		<%}%>
+		
+	</div>
+	<div class="col-md-offset-5 bottom">
+			<%if(current!=1&&itemCount!=0){%>
+			<a href="product.jsp?page=1<%if(!searchproduct.equals("")){out.print("&&");out.print("searchproduct="+searchproduct);}%>" class="btn btn-default"><<</a>
+			<a href="product.jsp?page=<%=current-1%><%if(!searchproduct.equals("")){out.print("&&");out.print("searchproduct="+searchproduct);}%>" class="btn btn-default"><</a>
+			<%}%>
+			<%
+				int totalpage = itemCount / limit;
+				if(itemCount%limit!=0){
+					totalpage++;
+				}
+				for(int i=1;i<totalpage+1;i++){
+			%>
+			<a href="product.jsp?page=<%=i%><%if(!searchproduct.equals("")){out.print("&&");out.print("searchproduct="+searchproduct);}%>" class="btn btn-default"><%=i%></a>
+			<%}%>
+			<%if(current!=totalpage&&itemCount!=0){%>
+			<a href="product.jsp?page=<%=current+1%><%if(!searchproduct.equals("")){out.print("&&");out.print("searchproduct="+searchproduct);}%>" class="btn btn-default">></a>
+			<a href="product.jsp?page=<%=totalpage%><%if(!searchproduct.equals("")){out.print("&&");out.print("searchproduct="+searchproduct);}%>" class="btn btn-default">>></a>
+			<%}%>
 	</div>
 
 </div>
