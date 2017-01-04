@@ -9,11 +9,25 @@
 		<div class="col-md-offset-5">
 			<h2>All Product</h2>
 		</div>
+		<div class="pull-right">
+			<form class="form-inline bottom">
+				<div class="form-group">
+					<input type="text" class="form-control" name="searchproduct">
+					<button type="submit"  class="btn btn-primary form-control" >Search</button>
+				</div>
+			</form>
+		</div>
 
-		<%
-		String query="select * , fullname as postedby from product p , user u where p.insertby = u.userid";
-		ResultSet rs = st.executeQuery(query);
-		while(rs.next()){
+
+		<%			
+
+			String query="select * , fullname as postedby from product p , user u where p.insertby = u.userid";
+			if(request.getParameter("searchproduct") != null){
+				 query += " and name like '%" +  request.getParameter("searchproduct") + "%'";
+			}
+
+			ResultSet rs = st.executeQuery(query);
+			while(rs.next()){
 		%>
 		<div class="col-md-12 col-sm-6 col-xs-6 box">
 			<div class="product-header col-md-12">

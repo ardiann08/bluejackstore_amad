@@ -6,11 +6,22 @@
 		<div class="col-md-offset-5">
 			<h2>All Member</h2>
 		</div>
+		<div class="pull-right">
+			<form class="form-inline bottom">
+				<div class="form-group">
+					<input type="text" class="form-control" name="searchmember">
+					<button type="submit"  class="btn btn-primary form-control" >Search</button>
+				</div>
+			</form>
+		</div>
 		<span style="color: red">
 			<%= request.getParameter("message") != null ? request.getParameter("message") : "" %>
 		</span>
 		<%
 		String query="select * from user";
+		if(request.getParameter("searchmember") != null){
+			query += " where fullname like '%" +  request.getParameter("searchmember") + "%'";
+		}
 		ResultSet rs = st.executeQuery(query);
 		while(rs.next()){
 		%>
